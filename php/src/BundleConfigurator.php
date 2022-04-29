@@ -7,16 +7,14 @@ final class BundleConfigurator
 {
     public function select(string $productNames): string
     {
-        if ($productNames === 'P1,P2') {
-            return 'B1';
-        }
+        $bundles = [
+            'P1,P2' => 'B1',
+            'P2,P1' => 'B1',
+            'P1,P4' => 'B2',
+        ];
 
-        if ($productNames === 'P2,P1') {
-            return 'B1';
-        }
-
-        if ($productNames === 'P1,P4') {
-            return 'B2';
+        if (array_key_exists($productNames, $bundles)) {
+            return $bundles[$productNames];
         }
 
         return $productNames;
