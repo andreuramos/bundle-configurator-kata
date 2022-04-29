@@ -13,10 +13,6 @@ final class BundleConfigurator
             'P1,P4' => 'B2',
         ];
 
-        if (array_key_exists($productNames, $bundles)) {
-            return $bundles[$productNames];
-        }
-
-        return $productNames;
+        return $bundles[$productNames] ?? $productNames;
     }
 }
